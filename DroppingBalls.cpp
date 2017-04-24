@@ -46,3 +46,25 @@ int main() {
 	}
 	return 0;
 }
+
+// C++ improve method
+#include <iostream>
+const int maxn = 20;
+
+int main() {
+	int D, I;
+	while (std::cin >> D >> I) {
+		int k = 1;
+		for (int i = 0; i != D - 1; i++) 
+			if (I % 2) {
+				k = k * 2;
+				I = (I + 1) / 2;
+			}
+			else {
+				k = k * 2 + 1;
+				I /= 2;
+			}
+			std::cout << k << std::endl;
+
+	}
+}
