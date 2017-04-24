@@ -80,3 +80,25 @@ bool read_input() {
     }
     return true;
 }
+
+
+// struct + pointer
+queue<Node*> freenodes;
+Node node[maxn];
+void init() {
+    for (int i = 0; i != maxn; i++) 
+        freenodes.push(&node[i]); // 初始化内存池
+}
+Node* newnode() {
+    Node* u = freenodes.front();
+    u->left = u->right = nullptr;
+    u->have_value = false;
+    freenodes.pop();
+    return u;
+}
+
+void deletenode(Node* u) {
+    freenodes.push(u);
+}
+
+// 静态数组配合红线列表来实现一个简单的内存池
